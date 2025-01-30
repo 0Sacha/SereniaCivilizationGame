@@ -4,9 +4,9 @@ import static java.lang.Integer.parseInt;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("--------------------------");
-        System.out.println("-----Le jeu de la vie-----");
-        System.out.println("--------------------------");
+        System.out.println("----------------------------");
+        System.out.println("------Le jeu de la vie------");
+        System.out.println("----------------------------");
         System.out.println("Combien d'humains souhaitez-vous ?");
         int nbrHuman = parseInt(scanner.nextLine());
         System.out.println("Combien d'humains spéciaux souhaitez-vous ?");
