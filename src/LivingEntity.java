@@ -15,19 +15,48 @@ public class LivingEntity {
         this.weather = "sun";
         this.day = 0;
     }
+
     public LivingEntity(int nbrHuman, int nbrHumanSpe, int nbrAnimal, int nbrVegetal, String weather, int day) {
         this.nbrHuman = nbrHuman;
         this.nbrHumanSpe = nbrHumanSpe;
         this.nbrAnimal = nbrAnimal;
         this.nbrVegetal = nbrVegetal;
         this.weather = weather;
-        this.day = 0;
+        this.day = day;
     }
 
     // Methodes
-    public void addEntity(int oui) {
+    public void addHuman(int oui) {
         this.nbrHuman = this.nbrHuman + oui;
-        System.out.println("Votre monde est composer de " + this.nbrHuman + " Humains, " + this.nbrHumanSpe + " Humains spéciaux, " + this.nbrAnimal + " animaux, "  + this.nbrVegetal + " végétaux, " + " Le temps est définie sur "+ this.weather + " " + this.day + " jours.");
+        System.out.println("Votre monde est maintenant composer de " + this.nbrHuman + " Humains, ");
+    }
+
+    public void addHumanSpe(int oui) {
+        this.nbrHumanSpe = this.nbrHumanSpe + oui;
+        System.out.println("Votre monde est maintenant composer de " + this.nbrHumanSpe + " Humains spéciaux, ");
+    }
+
+    public void addAnimal(int oui) {
+        this.nbrAnimal = this.nbrAnimal + oui;
+        System.out.println("Votre monde est maintenant composer de " + this.nbrAnimal + " animaux, ");
+    }
+
+    public void addVegetal(int oui) {
+        this.nbrVegetal = this.nbrVegetal + oui;
+        System.out.println("Votre monde est maintenant composer de " + this.nbrVegetal + " végétaux, ");
+    }
+
+    public void weatherChange(int oui) {
+        this.nbrVegetal = this.nbrVegetal + oui;
+        System.out.println("Le temps de votre monde est maintenant définie sur " + this.weather);
+    }
+
+    public void describeWorld() {
+        System.out.println("Votre monde est composer de " + this.nbrHuman + " Humains, "
+                + this.nbrHumanSpe + " Humains spéciaux, "
+                + this.nbrAnimal + " animaux, "
+                + this.nbrVegetal + " végétaux, "
+                + "Le temps est définie sur " + this.weather + " et vous êtes au jours " + this.day + ".");
     }
 
     // Getters & Setters

@@ -15,11 +15,11 @@ public class Animal extends LivingEntity {
 
     // Methods
 
-    public int fruit(){
+    public int fruit() {
         return 0;
     }
 
-    public boolean expired(){
+    public boolean expired() {
         return false;
     }
 

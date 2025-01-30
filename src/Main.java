@@ -20,7 +20,8 @@ public class Main {
         System.out.println("Quel jour souhaitez-vous commencez ?");
         int day = parseInt(scanner.nextLine());
         int oui = 36;
-        LivingEntity nbrHab = new LivingEntity(nbrHuman,nbrHumanSpe,nbrAnimal,nbrVegetal,weather,day);
-        nbrHab.addEntity(oui);
+        LivingEntity World = new LivingEntity(nbrHuman,nbrHumanSpe,nbrAnimal,nbrVegetal,weather,day);
+        World.describeWorld();
+
     }
 }

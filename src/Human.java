@@ -1,4 +1,4 @@
-public class Human extends LivingEntity{
+public class Human extends LivingEntity {
 
     // Attributes
 
