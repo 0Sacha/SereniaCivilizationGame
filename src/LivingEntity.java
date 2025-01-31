@@ -1,4 +1,4 @@
-public class LivingEntity extends EnvironmentSpe {
+public class LivingEntity extends Environment {
     public int nbrDieHuman;
     public int nbrDieAnimal;
     public int nbrAnimalEat;
@@ -6,11 +6,20 @@ public class LivingEntity extends EnvironmentSpe {
     // public int health; Prochaine version
     // public int energy; Prochaine version
 
-    public void living() {
+    // Constructor
+    public LivingEntity() {
+        this.nbrDieHuman = 0;
+        this.nbrDieAnimal = 0;
         this.nbrAnimalEat = 0;
         this.nbrVegetalEat = 0;
-        this.nbrAnimal = 0;
-        this.nbrVegetal = 0;
+    }
+
+    public LivingEntity(int nbrHuman, int nbrHumanSpe, int nbrAnimal, int nbrVegetal, String weather, int day) {
+        super(nbrHuman, nbrHumanSpe, nbrAnimal, nbrVegetal, weather, day);
+        this.nbrDieHuman = 0;
+        this.nbrDieAnimal = 0;
+        this.nbrAnimalEat = 0;
+        this.nbrVegetalEat = 0;
     }
 
     // Methodes

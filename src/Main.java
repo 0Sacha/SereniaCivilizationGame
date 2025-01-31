@@ -2,6 +2,9 @@ import java.util.Scanner;
 import static java.lang.Integer.parseInt;
 
 public class Main {
+    public Main() {
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Voulez-vous jouez ?(oui ou non)");
@@ -39,7 +42,7 @@ public class Main {
             System.out.println("Quel jour souhaitez-vous commencez ?");
             int day = parseInt(scanner.nextLine());
             Environment world = new Environment(nbrHuman, nbrHumanSpe, nbrAnimal, nbrVegetal, typeWeather, day);
-            LivingEntity living = new LivingEntity();
+            LivingEntity living = new LivingEntity(nbrHuman, nbrHumanSpe, nbrAnimal, nbrVegetal, typeWeather, day);
             Animal animal = new Animal();
             Plant plant = new Plant();
             world.describeWorld();
@@ -87,18 +90,23 @@ public class Main {
                     world.removeHuman(nbrOfEntitiesDel);
                 }
             }
+
+           // A mettre avec un if dans un menu apres sélection de l'acces au menu du monde
+            // world.weatherChange();
+
+
+
             world.describeWorld();
             living.eat();
             living.reproduce();
             living.dieHuman();
             living.dieAnimal();
-            world.weatherChange();
+            world.describeWorld();
             animal.hunter();
             animal.escape();
             plant.fruit();
             plant.expiredFruit();
             world.dayPast(day);
-            world.describeWorld();
         }
     }
 }
