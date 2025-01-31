@@ -2,25 +2,28 @@ import java.util.Scanner;
 
 public class Animal extends LivingEntity {
     // Attributes
-    private String type;
-    private int age;
+    //public String species;
+    public String type;
+    public int age;
 
     //Constructor
 
-    public Animal(int nbrHuman, int nbrHumanSpe, int nbrAnimal, int nbrVegetal, String weather, int day, String type, int age) {
-        super(nbrHuman, nbrHumanSpe, nbrAnimal, nbrVegetal, weather, day);
-        this.type = type;
-        this.age = age;
+    public Animal() {
+        this.type = "Vache";
+        this.age = 7;
     }
+
 
     // Methods
 
-    public int fruit() {
-        return 0;
+    public int hunter() {
+        int hunterSuccess = Math.random()<0.5?1:2;
+        return hunterSuccess = 2;
     }
 
-    public boolean expired() {
-        return false;
+    public boolean escape() {
+        int escapeSuccess = Math.random()<0.5?1:2;
+        return escapeSuccess == 1;
     }
 
     // Getters & Setters
@@ -31,5 +34,13 @@ public class Animal extends LivingEntity {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }

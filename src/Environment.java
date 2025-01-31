@@ -9,15 +9,15 @@ public class Environment {
     public String weather;
     public int day;
 
-    // Constructor
-//     public Environment() {
-//        this.nbrHuman = 100;
-//        this.nbrHumanSpe = 10;
-//        this.nbrAnimal = 50;
-//        this.nbrVegetal = 150;
-//        this.weather = "Soleil";
-//        this.day = 0;
-//    }
+    //  Constructor
+    public Environment() {
+        this.nbrHuman = 100;
+        this.nbrHumanSpe = 20;
+        this.nbrAnimal = 200;
+        this.nbrVegetal = 300;
+        this.weather = "Soleil";
+        this.day = 0;
+    }
 
     public Environment(int nbrHuman, int nbrHumanSpe, int nbrAnimal, int nbrVegetal, String weather, int day) {
         this.nbrHuman = nbrHuman;
@@ -27,6 +27,8 @@ public class Environment {
         this.weather = weather;
         this.day = day;
     }
+
+
     // Methodes
 
     // Human

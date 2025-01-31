@@ -1,34 +1,40 @@
 public class Plant extends LivingEntity {
 
     // Attributes
-
-    private String species;
+    public String type;
+    public int nbrFruit;
 
     // Constructor
-
-    public Plant(int nbrHuman, int nbrHumanSpe, int nbrAnimal, int nbrVegetal, String weather, int day, String species) {
-        super(nbrHuman, nbrHumanSpe, nbrAnimal, nbrVegetal, weather, day);
-        this.species = species;
+    public Plant() {
+        this.type = "Pomme";
     }
 
-
-    //Methods
-
-    public int hunter() {
-        return 0;
+    // Methods
+    public void fruit() {
+        this.nbrFruit = this.nbrVegetal * 3;
+        System.out.println("Vous avez " + this.nbrFruit + " fruit.");
     }
 
-    public boolean flee() {
-        return false;
+    public void expiredFruit() {
+        if (weather.equals("Orages")) {
+            this.nbrVegetal = this.nbrVegetal - 30;
+        }
     }
 
-    //Getters & Setters
-
-    public String getSpecies() {
-        return species;
+    // Getters & Setters
+    public String getType() {
+        return type;
     }
 
-    public void setSpecies(String species) {
-        this.species = species;
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getNbrFruit() {
+        return nbrFruit;
+    }
+
+    public void setNbrFruit(int nbrFruit) {
+        this.nbrFruit = nbrFruit;
     }
 }

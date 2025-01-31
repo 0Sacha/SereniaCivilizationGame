@@ -2,26 +2,42 @@ public class Human extends LivingEntity {
 
     // Attributes
 
-    private String name;
-    private String profession;
-    private int age;
+    protected String name;
+    protected String profession;
+    protected String skills;
+    protected String achievement;
+    protected int strong;
+    protected int brain;
+    protected int age;
 
 
     //Constructor
 
-    public Human(int nbrHuman, int nbrHumanSpe, int nbrAnimal, int nbrVegetal, String weather, int day, String name, String profession, int age) {
-        super(nbrHuman, nbrHumanSpe, nbrAnimal, nbrVegetal, weather, day);
-        this.name = name;
-        this.profession = profession;
-        this.age = age;
+    public Human(String name, String profession, String skills, String achievement, int strong, int brain, int age) {
+        this.name = "Humain";
+        this.profession = "Civil";
+        this.skills = "Aucun";
+        this.achievement = "Aucun";
+        this.strong = 0;
+        this.brain = 0;
+        this.age = 20;
     }
 
+    //public HumanSpe(String name, String profession, String skills, String achievement, int strong, int brain, int age) {
+    //    this.name = "Humain";
+    //    this.profession = "Civil";
+    //    this.skills = "Aucun";
+    //    this.achievement = "Aucun";
+    //    this.strong = strong;
+    //    this.brain = brain;
+    //    this.age = 20;
+    //}
 
-    //Methods
 
-    public void work() {
-
-    }
+    //Methods prochaine version
+//    public void work(String achievement) {
+//
+//    }
 
     //Getters & Setters
 
@@ -39,5 +55,45 @@ public class Human extends LivingEntity {
 
     public void setProfession(String profession) {
         this.profession = profession;
+    }
+
+    public String getSkills() {
+        return skills;
+    }
+
+    public void setSkills(String skills) {
+        this.skills = skills;
+    }
+
+    public String getAchievement() {
+        return achievement;
+    }
+
+    public void setAchievement(String achievement) {
+        this.achievement = achievement;
+    }
+
+    public int getStrong() {
+        return strong;
+    }
+
+    public void setStrong(int strong) {
+        strong = strong;
+    }
+
+    public int getBrain() {
+        return brain;
+    }
+
+    public void setBrain(int brain) {
+        this.brain = brain;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }

@@ -1,111 +1,104 @@
-public class LivingEntity {
-    public int nbrHuman;
-    public int nbrHumanSpe;
-    public int nbrAnimal;
-    public int nbrVegetal;
-    public String weather;
-    public int day;
+public class LivingEntity extends EnvironmentSpe {
+    public int nbrDieHuman;
+    public int nbrDieAnimal;
+    public int nbrAnimalEat;
+    public int nbrVegetalEat;
+    // public int health; Prochaine version
+    // public int energy; Prochaine version
 
-    // Constructor
-    public LivingEntity() {
-        this.nbrHuman = 100;
-        this.nbrHumanSpe = 10;
-        this.nbrAnimal = 50;
-        this.nbrVegetal = 150;
-        this.weather = "sun";
-        this.day = 0;
-    }
-
-    public LivingEntity(int nbrHuman, int nbrHumanSpe, int nbrAnimal, int nbrVegetal, String weather, int day) {
-        this.nbrHuman = nbrHuman;
-        this.nbrHumanSpe = nbrHumanSpe;
-        this.nbrAnimal = nbrAnimal;
-        this.nbrVegetal = nbrVegetal;
-        this.weather = weather;
-        this.day = day;
+    public void living() {
+        this.nbrAnimalEat = 0;
+        this.nbrVegetalEat = 0;
+        this.nbrAnimal = 0;
+        this.nbrVegetal = 0;
     }
 
     // Methodes
-    public void addHuman(int oui) {
-        this.nbrHuman = this.nbrHuman + oui;
-        System.out.println("Votre monde est maintenant composer de " + this.nbrHuman + " Humains, ");
+    public void eat() {
+        this.nbrAnimalEat = this.nbrHuman/1000;
+        this.nbrVegetalEat = this.nbrHuman/100;
+        this.nbrAnimal = this.nbrAnimal - this.nbrAnimalEat;
+        this.nbrVegetal = this.nbrVegetal - this.nbrVegetalEat;
     }
 
-    public void addHumanSpe(int oui) {
-        this.nbrHumanSpe = this.nbrHumanSpe + oui;
-        System.out.println("Votre monde est maintenant composer de " + this.nbrHumanSpe + " Humains spéciaux, ");
+    public void reproduce() {
+        int born = 1;
+        int totalHuman = this.nbrHuman;
+        int totalAnimal = this.nbrAnimal;
+        int totalVegetal = this.nbrVegetal;
+        if ( totalHuman >= 2){
+            totalHuman = totalHuman + born;
+        } if ( totalAnimal >= 2){
+            totalAnimal = totalAnimal + born;
+        } if ( totalVegetal >= 2){
+            totalVegetal = totalVegetal + born;
+        }
+        this.nbrHuman = totalHuman;
+        this.nbrAnimal = totalAnimal;
+        this.nbrVegetal = totalVegetal;
+        System.out.println("Votre monde est maintenant composer de " + this.nbrHuman + " Humains car " + born + " Humain est né");
+        System.out.println("Votre monde est maintenant composer de " + this.nbrAnimal + " Animaux car " + born + " Animal est né");
+        System.out.println("Votre monde est maintenant composer de " + this.nbrVegetal + " Végetaux car " + born + " Végétal a pousser");
     }
 
-    public void addAnimal(int oui) {
-        this.nbrAnimal = this.nbrAnimal + oui;
-        System.out.println("Votre monde est maintenant composer de " + this.nbrAnimal + " animaux, ");
+    public void dieHuman() {
+        if (this.nbrAnimal >= this.nbrHuman || this.nbrVegetal == this.nbrHuman){
+            this.nbrDieHuman = 0;
+        } else if (this.nbrAnimal <= this.nbrHuman || this.nbrVegetal == this.nbrHuman){
+            this.nbrDieHuman = 10;
+        } else if (this.nbrAnimal <= this.nbrHuman/2 || this.nbrVegetal <= this.nbrHuman){
+            this.nbrDieHuman = 50;
+        } else if (this.nbrAnimal <= this.nbrHuman/2 || this.nbrVegetal <= this.nbrHuman/2){
+            this.nbrDieHuman = 100;
+        }
+        this.nbrHuman = this.nbrHuman - this.nbrDieHuman;
+        System.out.println("Votre monde est maintenant composer de " + this.nbrHuman + " Humains " + this.nbrDieHuman + " sont mort");
     }
 
-    public void addVegetal(int oui) {
-        this.nbrVegetal = this.nbrVegetal + oui;
-        System.out.println("Votre monde est maintenant composer de " + this.nbrVegetal + " végétaux, ");
-    }
-
-    public void weatherChange(int oui) {
-        this.nbrVegetal = this.nbrVegetal + oui;
-        System.out.println("Le temps de votre monde est maintenant définie sur " + this.weather);
-    }
-
-    public void describeWorld() {
-        System.out.println("Votre monde est composer de " + this.nbrHuman + " Humains, "
-                + this.nbrHumanSpe + " Humains spéciaux, "
-                + this.nbrAnimal + " animaux, "
-                + this.nbrVegetal + " végétaux, "
-                + "Le temps est définie sur " + this.weather + " et vous êtes au jours " + this.day + ".");
+    public void dieAnimal() {
+        if (this.nbrAnimal <= this.nbrVegetal){
+            this.nbrDieAnimal = 0;
+        } else if (this.nbrAnimal >= this.nbrVegetal){
+            this.nbrDieAnimal = 10;
+        } else if (this.nbrAnimal > this.nbrVegetal/2){
+            this.nbrDieAnimal = 50;
+        }
+        this.nbrAnimal = this.nbrAnimal - this.nbrDieAnimal;
+        System.out.println("Votre monde est maintenant composer de " + this.nbrAnimal + " Humains " + this.nbrDieAnimal + " sont mort");
     }
 
     // Getters & Setters
 
-    public int getNbrHuman() {
-        return nbrHuman;
+
+    public int getNbrDieHuman() {
+        return nbrDieHuman;
     }
 
-    public void setNbrHuman(int nbrHuman) {
-        this.nbrHuman = nbrHuman;
+    public void setNbrDieHuman(int nbrDieHuman) {
+        this.nbrDieHuman = nbrDieHuman;
     }
 
-    public int getNbrHumanSpe() {
-        return nbrHumanSpe;
+    public int getNbrDieAnimal() {
+        return nbrDieAnimal;
     }
 
-    public void setNbrHumanSpe(int nbrHumanSpe) {
-        this.nbrHumanSpe = nbrHumanSpe;
+    public void setNbrDieAnimal(int nbrDieAnimal) {
+        this.nbrDieAnimal = nbrDieAnimal;
     }
 
-    public int getNbrAnimal() {
-        return nbrAnimal;
+    public int getNbrAnimalEat() {
+        return nbrAnimalEat;
     }
 
-    public void setNbrAnimal(int nbrAnimal) {
-        this.nbrAnimal = nbrAnimal;
+    public void setNbrAnimalEat(int nbrAnimalEat) {
+        this.nbrAnimalEat = nbrAnimalEat;
     }
 
-    public int getNbrVegetal() {
-        return nbrVegetal;
+    public int getNbrVegetalEat() {
+        return nbrVegetalEat;
     }
 
-    public void setNbrVegetal(int nbrVegetal) {
-        this.nbrVegetal = nbrVegetal;
-    }
-
-    public String getWeather() {
-        return weather;
-    }
-
-    public void setWeather(String weather) {
-        this.weather = weather;
-    }
-
-    public int getDay() {
-        return day;
-    }
-
-    public void setDay(int day) {
-        this.day = day;
+    public void setNbrVegetalEat(int nbrVegetalEat) {
+        this.nbrVegetalEat = nbrVegetalEat;
     }
 }
